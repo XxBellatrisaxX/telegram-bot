@@ -74,7 +74,7 @@ async def article(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"Помилка при публікації: {e}")
 
 def main():
-    TOKEN = os.environ.get("7943415978:AAEPjTG1oGvr545LkTLwyRat5_0EcstCaOA")
+    TOKEN = os.environ.get("BOT_TOKEN")
     if not TOKEN:
         print("Помилка: не знайдено BOT_TOKEN в змінних оточення")
         return
