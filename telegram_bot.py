@@ -3,7 +3,7 @@ import html
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
 
-ID = "@progg_notebook"  # Заміни на свій канал
+ID = "@progg_notebook"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Привіт! Я працюю на новій версії бібліотеки 🤖")
@@ -38,7 +38,7 @@ async def post_photo_with_caption(update: Update, context: ContextTypes.DEFAULT_
         await context.bot.send_photo(
             chat_id=ID,
             photo=photo.file_id,
-            caption=cleaned_caption if cleaned_caption else ""
+            caption=cleaned_caption if cleaned_caption else None  # краще None, якщо порожній
         )
         await message.delete()
         await update.message.reply_text("Фото з текстом опубліковано!")
